@@ -1,0 +1,61 @@
+{% extends 'layout.html' %}
+{% block title %} Home {% endblock %}
+
+{% block content %}
+
+<style>
+    .encabezado {
+        position: relative;
+        padding: 20px;
+        height: 726px; 
+    }
+    .encabezado::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url(../static/img/omron_blog_nota4_01_0dc6014a92.jpg);
+        background-size: cover;
+        background-position: top center; 
+        opacity: 0.5; 
+    }
+    .entrada {
+        position: relative;
+        z-index: 1; 
+        color: #333333; 
+        text-align: left;
+        max-width: 60%;
+    }
+    h2 {
+        margin-bottom: 20px; 
+        font-size: 28px;
+        text-align: center; 
+    }
+    p {
+        font-size: 20px; 
+        text-align: center; 
+    }
+    .btn {
+        display: block;
+        margin: 20px auto 0; 
+        text-align: center; 
+        max-width: 180px;
+    }
+    .btn:hover {
+        border: 2px solid black;
+    }
+    
+
+</style>
+
+<div class="encabezado">
+    <div class="entrada">
+        <h2>¡Mejora tu respiración, mejora tu vida!</h2>
+        <p>Descubre RespiraCheck, la aplicación que te ofrece el poder de controlar tu salud respiratoria. Monitorea tus síntomas de manera continua y sin invasiones, desde afecciones pulmonares hasta asma, en tiempo real. Con nosotros, la detección temprana es la clave para un bienestar duradero. ¡Evalúa tus tratamientos y vive al máximo con RespiraCheck!</p>
+        <a href="#" class="btn">Descubre más</a>
+    </div>
+</div>
+
+{% endblock %}

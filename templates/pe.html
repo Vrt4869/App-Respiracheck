@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
+    <title>Parámetros etimológicos</title>
+    <style>
+        html, body {
+            height: 100%; 
+            margin: 0; 
+            overflow-x: hidden; 
+        }
+
+        html {
+            background-color: linear-gradient(to right, #e2e2e2, #c9d6ff); 
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            padding: 20px; 
+            overflow-y: auto; 
+        }
+
+        nav {
+            box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+            width: 100%; 
+            position: fixed;
+            top: 0; 
+            left: 0; 
+            z-index: 999; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+        h1 {
+            margin-top: 70px; 
+        }
+        h1, h2 {
+            break-after: avoid;
+            border-bottom: 2px solid #bdb5bcb0;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+            color: #4b0a70; 
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 400px; 
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: block;
+            margin: 0 auto;
+        }
+
+        p {
+            text-align: justify;
+            color: #0a0a0a; 
+            margin-bottom: 10px; 
+        }
+
+        ul {
+            margin-left: 20px; 
+            margin-bottom: 10px; 
+        }
+        nav ul li:last-child {
+            margin-right: 25px; 
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: flex-end; 
+            align-items: center;
+            padding-top: 10px; 
+        }
+
+        nav a {
+            height: 100%;
+            padding: 0 30px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            color: white;
+            font-size: 14px;
+        }
+
+    </style>
+</head>
+<body class="home">
+    <nav class="menu">
+        <a href="/"><label for="" class="logo">BIENVENIDO {{ session['name'] }}</label></a>
+        <ul class="menu-opc">
+            <li>
+                <a href="/pe">Parámetros Etimológicos</a>
+            </li>
+            <li>
+                <a href="/cedula_home">SPo2 y Fr en tiempo real</a>
+            </li>
+            <li>
+                <a href="/layout">Salir</a>
+            </li>
+        </ul>
+    </nav>
+    <h1>Enfermedad Pulmonar Obstructiva Crónica (EPOC)</h1>
+    <img src="../static/img/enfermedad-pulmonar-obstructiva-cronica.jpg" alt="Imagen EPOC" style="margin-bottom: 20px;">
+    <p>La EPOC es una afección pulmonar crónica caracterizada por la obstrucción del flujo de aire en los pulmones, lo que dificulta la respiración. Esta obstrucción del flujo de aire es generalmente progresiva y suele ser irreversible. A largo plazo afecta las vías respiratorias y los pulmones, y generalmente se relaciona con el tabaquismo y la exposición a sustancias irritantes del aire.</p>
+
+    <h2>Factores de riesgo</h2>
+    <p>La probabilidad de desarrollar la EPOC está influenciada por diversos factores de riesgo, siendo el consumo de tabaco el principal entre ellos. Sorprendentemente, hasta un 75% de los pacientes diagnosticados con EPOC tienen antecedentes de tabaquismo en algún momento de sus vidas. Además del tabaco, existen otras causas contribuyentes que incluyen la exposición prolongada a contaminantes ambientales, como el humo de segunda mano, así como la exposición laboral a partículas e irritantes.</p>
+    <img src="../static/img/Opera Snapshot_2024-02-14_194301_www.google.com.png" alt="FREPOC">
+    
+    <h2>Signos y síntomas de la EPOC</h2>
+    <p>Los signos y síntomas de la EPOC no suelen manifestarse de manera inmediata. A medida que progresa el daño pulmonar, estos síntomas tienden a volverse más notorios. Entre los más comunes, se incluyen:</p>
+    <ul>
+        <li>Tos Crónica Productiva: Los pacientes pueden experimentar una tos persistente que produce moco. Esta tos es un síntoma característico de la enfermedad.</li>
+        <li>Silbidos y Sibilancias al Respirar: Al respirar, es posible que se escuchen silbidos o sibilancias, que son resultado de la estrechez de las vías respiratorias.</li>
+        <li>Disnea: La disnea, o sensación de falta de aire, suele manifestarse, especialmente al realizar esfuerzos físicos.</li>
+    </ul>
+    <p>Con la progresión de la enfermedad a etapas avanzadas, también pueden surgir:</p>
+    <ul>
+        <li>Infecciones Respiratorias Recurrentes: Los pacientes pueden ser más propensos a desarrollar infecciones respiratorias con frecuencia debido a la debilidad del sistema pulmonar.</li>
+        <li>Descompensación Sistémica: En casos avanzados, la enfermedad puede afectar no solo los pulmones, sino también otros sistemas del cuerpo, lo que puede llevar a una descompensación sistémica.</li>
+    </ul>
+    <img src="../static/img/unnamed.png" alt="SSEPOC">
+    
+    <h2>Diagnóstico de la EPOC</h2>
+    <p>Cuando se sospecha clínicamente de la Enfermedad Pulmonar Obstructiva Crónica (EPOC), es esencial llevar a cabo un riguroso proceso diagnóstico. El médico a cargo recopilará antecedentes personales y familiares, además de evaluar la presencia de factores de riesgo, lo cual complementará con hallazgos obtenidos durante la exploración física. Sin embargo, la prueba fundamental en este proceso es la espirometría, que proporciona una medición objetiva del grado de obstrucción bronquial.</p>
+    <img src="../static/img/espirometria-epoc.jpg.webp" alt="DEPOC">
+    <h2>Tratamiento de la EPOC</h2>
+    <p>Para el tratamiento de la EPOC, se dispone de una variedad de opciones destinadas a controlar los síntomas y mejorar la calidad de vida de los pacientes. Entre estas alternativas, se encuentran:</p>
+    <ul>
+        <li>Oxigenoterapia: En etapas avanzadas de la EPOC, la oxigenoterapia se convierte en una herramienta vital para corregir la hipoxemia (niveles bajos de oxígeno en sangre), lo que mejora significativamente la función pulmonar y la calidad de vida.</li>
+        <li>Programas de Rehabilitación Pulmonar: Estos programas, que incluyen ejercicios supervisados, educación y apoyo psicosocial, juegan un papel fundamental en la mejora de la capacidad funcional de los pacientes, permitiéndoles una vida más activa y saludable.</li>
+        <li>Vacunas: Las vacunas contra la influenza y el neumococo desempeñan un papel crucial en la prevención de infecciones que pueden agravar la EPOC. Mantenerse al día con estas vacunas es esencial para la protección de la salud.</li>
+    </ul>
+    <img src="../static/img/maxresdefault.jpg" alt="TTEPOC">
+
+    <h2>Variables</h2>
+    <p>Además de los aspectos clínicos mencionados, al monitorear y tratar pacientes con EPOC, es esencial tener en cuenta las siguientes variables:</p>
+    <ul>
+        <li>Saturación de Oxígeno en Sangre (SpO2): La SpO2 indica el porcentaje de hemoglobina saturada con oxígeno en la sangre arterial y es un indicador crucial de la capacidad del cuerpo para transportar oxígeno a los tejidos.</li>
+        <li>Frecuencia Respiratoria (FR): La FR es el número de respiraciones completas que una persona realiza en un minuto. Puede ser un indicador útil de la eficacia de la ventilación pulmonar y del esfuerzo respiratorio del paciente.</li>
+    </ul>
+    <h2>Artículos de soporte</h2>
+    <ul>
+        <li><a href="https://pubmed.ncbi.nlm.nih.gov/30126085/">Continuous monitoring of respiratory rate in emergency admissions</a>: Presenta una evaluación del sensor RespiraSenseTM, se centra en la utilidad y precisión de este sensor en el monitoreo de la frecuencia respiratoria en pacientes ingresados en emergencias.</li>
+        <li><a href="https://pubmed.ncbi.nlm.nih.gov/29589599/">Continuous Monitoring of Respiratory Rate on General Wards</a>: Explora las implicaciones clínicas del monitoreo continuo de la frecuencia respiratoria en áreas generales de hospitalización, analizando cómo la implementación de este tipo de monitoreo puede afectar la práctica clínica en términos de detección temprana de deterioro clínico y mejora de los resultados del paciente en entornos hospitalarios generales</li>
+        <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6333072/">Twenty-four-hour continuous and remote monitoring of respiratory rate using a medical radar system for the early detection</a>: El estudio investiga la eficacia de este sistema para la detección temprana de neumonía en este grupo de pacientes, lo que puede tener implicaciones significativas para el manejo clínico y la mejora de los resultados.</li>
+        <li><a href="https://www.mdpi.com/2079-6374/14/2/90">Advances in Respiratory Monitoring</a>: El tema de la monitorización de la respiración con dispositivos electrónicos portátiles y remotos es actualmente el centro de atención de los investigadores.</li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+}
+
+.menu{
+    
+    background: #512da8;
+    height: 75px;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+a{
+    text-decoration: none;
+}
+
+.logo{
+    cursor: pointer;
+    font-size: 34px;
+    padding: 0 80px;
+    font-weight: bold;
+    color: white;
+    
+}
+.logo2{
+    font-size: 34px;
+    padding: 0 40px;
+    font-weight: bold;
+}
+.logo3{
+    margin-left: 10%;
+}
+
+.logo4{
+    margin-left: 21%;
+}
+
+.menu-opc{
+    display: flex;
+    list-style: none;
+    margin-right: 30px;
+}
+.menu-opc li{
+    border-radius: 3px;
+    margin: 0 5px;
+}
+.menu-opc li a{
+    padding: 7px 13px;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    color: white;
+}
+.menu-opc li :hover{
+    background: blanchedalmond;
+    transition: .4s;
+    color: black;
+}
+.menu-opc li a:hover{
+    color: black;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px; 
+    background-color: #512da8;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    margin-right: 10px;
+    margin-top: 20px;
+    font-size: 16px; 
+}
+
+.btn:hover {
+    background-color: blanchedalmond;
+    color: #000;
+}
+
+.btn:active {
+    background-color: #512da8;
+    color: black;
+}
+
+/*login*/
+
+.principal {
+    position: fixed; 
+    top: 50%; 
+    left: 44%; 
+    transform: translate(-50%, -50%); 
+    width: 400px; 
+    padding: 40px; 
+    border-radius: 10px; 
+    background-color: #f0f0f0; 
+    text-align: center; 
+}
+
+
+.login-container {
+    text-align: center;
+}
+
+.login-form {
+    margin-top: 20px;
+}
+
+.login {
+    background-color: #ffffff; 
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
+    border-radius: 10px; 
+    padding: 80px 60px; 
+    font-family: 'Montserrat', sans-serif; 
+    max-width: 600px; 
+    width: 500px; 
+    text-align: center; 
+}
+
+
+.form-group {
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.form-input {
+    width: calc(100% - 20px); 
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 18px;
+}
+
+.boton {
+    background-color: #512da8;
+    color: #ffffff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    margin: 0 auto; 
+    display: block; 
+}
+
+.boton:hover {
+    color: black;
+    border: 2px solid black;
+    background-color: blanchedalmond;
+}
+
+/*registro*/
+.registro{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+    padding: 15px;
+    margin-left: 20%;
+}
+
+/* Home*/
+
+body:before{
+    content: "";
+    width: 100%;
+    min-height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: white;
+    opacity: 0.6;
+    z-index: -1;
+}
+.entrada{
+    color: #841947;
+    font-size:x-large;
+    margin-top: 200px;
+    text-align: center;
+
+}
+.inicio{
+    color: #ffffff;
+    font-size:small;
+    margin-top: 200px;
+    text-align: center;
+    padding: 10px 10px;
+    background: rgba(0, 0, 0, 0.448);
+}
+
+.inicio button{
+    border: none;
+    outline: none;
+    color: white;
+    height: 40px;
+    width: 90px;
+    background: #ffffff;
+    font-size: 15px;
+    margin-top: 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+.home{
+    margin: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.home:before{
+    content: "";
+    width: 100%;
+    min-height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: white;
+    opacity: 0.7;
+    z-index: -1;
+}
+
+
+.home2{
+    margin: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.home2:before{
+    content: "";
+    width: 100%;
+    min-height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: white;
+    opacity: 0.4;
+    z-index: -1;
+}
+

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
+    <title>{% block title %} {% endblock %}</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .nota {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            margin-top: 60px;
+            margin-bottom: 20px;
+            max-width: 1145px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .nota p {
+            margin: 0;
+            font-style: italic;
+            color: #666;
+        }
+        .chart-container {
+            position: relative;
+            height: 400px;
+            width: calc(50% - 10px); 
+            margin: 50px auto 0;
+            float: left; 
+            margin-right: 10px; 
+        }
+        canvas {
+            width: 100% !important; 
+            height: 100% !important; 
+        }
+    </style>
+</head>
+<body class="home">
+    <nav class="menu">
+        <a href="/"><label for="" class="logo">BIENVENIDO {{ session['name'] }}</label></a>
+        <ul class="menu-opc">
+            <li>
+                <a href="/pe">Parámetros Etimológicos</a>
+            </li>
+            <li>
+                <a href="/cedula_home">SPo2 y Fr en tiempo real</a>
+            </li>
+            <li>
+                <a href="/layout">Salir</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="nota">
+        <p>Para una interpretación precisa, asegúrese de contar con la supervisión de un adulto responsable y coloque el dispositivo correctamente.</p>
+    </div>
+    <div class="chart-container">
+        <canvas id="respiratoryRateChart"></canvas>
+    </div>
+    <div class="chart-container">
+        <canvas id="oxygenSaturationChart"></canvas>
+    </div>
+    <script>
+        var respiratoryRateChart = new Chart(document.getElementById('respiratoryRateChart'), {
+            type: 'line',
+            data: {
+                labels: [], // Aquí se almacenarán las etiquetas (timestamps)
+                datasets: [{
+                    label: 'Frecuencia Respiratoria',
+                    data: [], // Aquí se almacenarán los datos de frecuencia respiratoria
+                    borderColor: 'rgb(75, 192, 192)',
+                    tension: 0.1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    tooltip: {
+                        mode: 'nearest',
+                        intersect: false
+                    }
+                }
+            }
+        });
+
+        var oxygenSaturationChart = new Chart(document.getElementById('oxygenSaturationChart'), {
+            type: 'line',
+            data: {
+                labels: [], // Aquí se almacenarán las etiquetas (timestamps)
+                datasets: [{
+                    label: 'Saturación de Oxígeno',
+                    data: [], // Aquí se almacenarán los datos de saturación de oxígeno
+                    borderColor: 'rgb(255, 99, 132)',
+                    tension: 0.1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100 // Establecer el máximo en 100 para la saturación de oxígeno
+                    }
+                },
+                plugins: {
+                    tooltip: {
+                        mode: 'nearest',
+                        intersect: false
+                    }
+                }
+            }
+        });
+
+        // Función para agregar datos a los gráficos
+        function addData(respiratoryRate, oxygenSaturation) {
+            const timestamp = new Date().toLocaleTimeString();
+            respiratoryRateChart.data.labels.push(timestamp);
+            respiratoryRateChart.data.datasets[0].data.push(respiratoryRate);
+            oxygenSaturationChart.data.labels.push(timestamp);
+            oxygenSaturationChart.data.datasets[0].data.push(oxygenSaturation);
+            respiratoryRateChart.update();
+            oxygenSaturationChart.update();
+        }
+
+        // Función para mostrar los valores al hacer clic en la página
+        document.addEventListener('click', function(event) {
+            const respiratoryRateCanvas = respiratoryRateChart.canvas;
+            const oxygenSaturationCanvas = oxygenSaturationChart.canvas;
+            const respiratoryRateData = respiratoryRateChart.data.datasets[0].data;
+            const oxygenSaturationData = oxygenSaturationChart.data.datasets[0].data;
+            const respiratoryRateLabels = respiratoryRateChart.data.labels;
+            const oxygenSaturationLabels = oxygenSaturationChart.data.labels;
+
+            const respiratoryRateValues = respiratoryRateData.map((value, index) => `${respiratoryRateLabels[index]}: ${value}`).join('\n');
+            const oxygenSaturationValues = oxygenSaturationData.map((value, index) => `${oxygenSaturationLabels[index]}: ${value}`).join('\n');
+
+            alert(`Frecuencia Respiratoria:\n${respiratoryRateValues}\n\nSaturación de Oxígeno:\n${oxygenSaturationValues}`);
+        });
+
+        // Simulación de datos (Tenemos que reemplzar esta lógica para recibir datos del sensor. TRISTE)
+        setInterval(function() {
+            const respiratoryRate = Math.floor(Math.random() * 30) + 10; // Valor aleatorio entre 10 y 40
+            const oxygenSaturation = Math.floor(Math.random() * 20) + 80; // Valor aleatorio entre 80 y 100
+            addData(respiratoryRate, oxygenSaturation);
+        }, 2000); // Actualizar cada 2 segundos
+    </script>
+</body>
+</html>
+
+
